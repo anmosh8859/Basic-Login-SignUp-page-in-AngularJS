@@ -1,0 +1,19 @@
+input.form-control {
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input.form-control:focus {
+    border-color: green;
+    box-shadow: 0 0 5px rgba(255, 193, 7, 0.5); 
+}
+
+input.form-control:invalid {
+    border-color: #dc3545;
+}
+
+.custom-container {
+    background-color: #e0f7fa;
+    padding: 20px;
+    border-radius: 10px;
+}

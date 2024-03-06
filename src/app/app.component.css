@@ -1,0 +1,13 @@
+input.form-control {
+    border: 1px solid #ced4da; /* Default border color */
+    transition: border-color 0.3s ease-in-out; /* Transition effect on border color */
+}
+
+input.form-control:focus {
+    border-color: green; /* Yellow color on focus */
+    box-shadow: 0 0 5px rgba(255, 193, 7, 0.5); /* Optional: Add a subtle box-shadow effect */
+}
+
+input.form-control:invalid {
+    border-color: #dc3545; /* Red color for invalid input */
+}

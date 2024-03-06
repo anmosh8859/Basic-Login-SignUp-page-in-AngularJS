@@ -1,0 +1,53 @@
+<div class="custom-container container-fluid col-md-8 mt-5">
+    <div class="row justify-content-center">
+        <div class="col">
+            <!-- col-md-12 makes the column take full width on medium-sized screens and larger -->
+            <h2 class="text-center">Sign Up</h2>
+            <form #signupForm="ngForm" (submit)="signUp()">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <input type="text" name="fname" class="form-control mt-3" placeholder="First Name" [(ngModel)]="user.fname" required />
+                        <div *ngIf="signupForm.controls['fname'].invalid && signupForm.controls['fname'].touched" class="text-danger">
+                            First Name is required.
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="text" name="lname" class="form-control mt-3" placeholder="Last Name" [(ngModel)]="user.lname" required />
+                        <div *ngIf="signupForm.controls['lname'].invalid && signupForm.controls['lname'].touched" class="text-danger">
+                            Last Name is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control mt-3" placeholder="Email" [(ngModel)]="user.email" required email />
+                        <div *ngIf="signupForm.controls['email'].invalid && signupForm.controls['email'].touched" class="text-danger">
+                            Please enter a valid email address.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control mt-3" placeholder="Password" [(ngModel)]="user.password" required minlength="6" />
+                        <div *ngIf="signupForm.controls['password'].invalid && signupForm.controls['password'].touched" class="text-danger">
+                            Password is required and must be at least 6 characters long.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="confirmPassword" class="form-control mt-3" placeholder="Confirm Password" [(ngModel)]="confirmPassword" required />
+                        <div *ngIf="signupForm.controls['confirmPassword'].invalid && signupForm.controls['confirmPassword'].touched && user.password!==confirmPassword" class="text-danger">
+                            Please confirm your password.
+                        </div>
+                        <div *ngIf="user.password !== confirmPassword" class="text-danger">
+                            Passwords do not match.
+                        </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <input type="submit" class="btn btn-success" value="Sign Up" [disabled]="signupForm.invalid" />
+                    </div>
+                    <div class="text-center login mt-3">
+                        Already have an account? <a routerLink="/login">Login</a> here.
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
